@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+<style>
+    button{
+       background-color:rgb(135, 166, 250);
+       border-radius: 5px;   
+ }
+ h1{
+     color: lightsteelblue;
+ }
+</style>
+  <center>
+    <h1>solucion de problemas</h1>
+
+    <!--Esta es la descripción del problema-->
+    <p>programa que recibe variables y segun su función muestra el resultado</p>
+
+    <!--Análisis básicos-->
+    <p>los datos de entrada seran numeros y daran el resultado correspondiente.</p>
+    <p>se realizaran diferentes operaciones matemáticas: suma, resta, multiplicación y divisón.</p>
+
+    <!--input´s para recibir las variables-->
+    <label for="a">Ingrese el primer numero</label>
+    <input type="number" id="a" name="a"><br>
+
+    <label for="b">Ingrese el segundo numero</label>
+    <input type="number" id="b" name="b"><br>
+
+    <label for="c">Ingrese el tercer numero</label>
+    <input type="number" id="c" name="c"><br>
+
+    <!--Botón que llamara a la función sumar, restar, multiplicar y dividir-->
+    <button onclick="sumar()">Sumar</button><br>
+    <button onclick="resta()">Restar</button><br>
+    <button onclick="multiplicacion()">Multiplicar</button><br>
+    <button onclick="division()">Dividir</button><br>
+
+    <!-- campo donde se mostrara el resultado --> 
+    <label for= "resultado">Resultados</label>
+    <input type= "number" id="Resultado" name="resultado">
+    
+    <script>
+        function sumar(){
+ 
+            //Capturar los valores de los input y guardamos en variables
+            var a = document.getElementById ("a").value ;
+            var b = document.getElementById ("b").value ;
+            var c = document.getElementById ("c").value ;
+
+           //Definimos la variable de salida
+            var resultado; 
+
+          //Verificar si las casillas de las variables están en blanco
+            if(a== ""){
+               a = 0;
+            }else{
+               a= parseInt(a);
+            }
+
+            if(b == ""){
+                b = 0;
+            }else{
+                b = parseInt (b) ;
+            }
+
+            if(c == ""){
+                 c = 0;
+            }else{
+                 c = parseInt(c);
+            }
+
+            //Realizamos la suma
+            resultado = a + b + c;
+
+            //Mostramos el resultado 
+            document.getElementById("Resultado").value = resultado;
+            }
+        //Funciones para resta 
+
+        function mayor(a,b,c){
+            if (a>=b && a>=c ){
+                return a;
+            }else if (b>=a && b >= c ){
+                return b;
+            }
+                return c;
+        }
+        function menor(a,b,c){
+            if (a<=b && a<=c ){
+                return a;
+            }else if (b<=a && b <= c ){
+                return b;
+            }
+        }
+        function resta(){
+            //Capturar los valores de los input y guardamos en variables
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            var c = parseInt(document.getElementById("c").value);
+              //Mostramos el resultado
+            document.getElementById("Resultado").value=(mayor(a,b,c)-menor(a,b,c));
+        }
+
+        function multiplicacion(){
+            //Capturar los valores de los input y guardamos en variables
+            var a = parseInt(document.getElementById("a").value);
+            var c = parseInt(document.getElementById("c").value);
+              //Mostramos el resultado
+            document.getElementById("Resultado").value=a*c;
+        }
+
+        function division(){
+             //Capturar los valores de los input y guardamos en variables
+            var a = parseInt(document.getElementById("a").value);
+            var b = parseInt(document.getElementById("b").value);
+            var c = parseInt(document.getElementById("c").value);   
+            var res= mayor(a,b,c);
+            if (b==0) {
+                alert("invalido es cero");   
+            }else{
+               //Mostramos el resultado 
+                document.getElementById("Resultado").value=res/b;
+            }
+        }
+
+       </script>
+       </center>
+</body>
+</html>
+
+
